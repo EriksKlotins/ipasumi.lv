@@ -1,0 +1,20 @@
+//- md-virtual-repeat-container(layout="row" layout-wrap)
+	//- md-card(layout-padding md-virtual-repeat="item in $ctrl.items" flex="33")
+div(layout-wrap layout="row")
+	.wrapper(ng-repeat="item in $ctrl.items" flex="100")
+		md-card
+			md-card-header
+				md-card-avatar
+					img.md-user-avatar(src="http://placehold.it/50x50")
+				md-card-header-text
+					span.md-title {{item.place}}
+					span.md-subhead Cena {{item.price}} EUR, platība {{item.m2}} m2, zeme {{item.m2land}} m2
+			md-card-content
+				div.photos(layout-wrap layout="row")
+					.photo(flex="25" ng-repeat="photo in item.photos.slice(0,8)")
+						img(src="{{photo}}" )
+				p.description {{item.description}}
+			md-card-actions(layout="row")
+				md-button(target="blank" href="http://ss.lv{{item.url}}") Sludinājums
+				md-button(ng-click="$ctrl.showMap({$item:item})" ) Karte
+

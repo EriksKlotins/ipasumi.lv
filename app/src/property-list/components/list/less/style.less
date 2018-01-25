@@ -1,0 +1,44 @@
+
+property-list
+{
+	md-card
+	{
+		md-card-content
+		{
+			p.description
+			{
+				display: inline-block;
+				max-height: 100px;
+				overflow: hidden;
+				position: relative;
+				&:after
+				{
+					content: " ";
+					top:60px;
+					position: absolute;
+					left: 0;
+					right: 0;
+					bottom: 0;
+					background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+				}
+				
+			}
+			.photos
+			{
+				.photo
+				{
+					border:5px solid #efefef;
+					height: 130px;
+					// width: 100px;
+					border-radius: 4px;
+					overflow: hidden;
+					img
+					{						
+						width: 100%;
+					}
+				}
+			}	
+		}
+		
+	}	
+}

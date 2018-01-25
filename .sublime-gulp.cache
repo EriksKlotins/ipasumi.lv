@@ -1,0 +1,1 @@
+{"/Users/eriksklotins/Documents/web-projects/ss-GUI/project/gulpfile.js": {"sha1": "6d35e76a03477b35629aeb7cbfb088fc2f390570", "tasks": {"watch": {"name": "watch", "dependencies": ""}, "jade-m": {"name": "jade-m", "dependencies": ""}, "less-m": {"name": "less-m", "dependencies": ""}, "jade": {"name": "jade", "dependencies": ""}}}}

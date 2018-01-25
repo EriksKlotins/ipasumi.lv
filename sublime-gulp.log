@@ -1,0 +1,72 @@
+Remember that you can report errors and get help in https://github.com/NicoSantangelo/sublime-gulp
+
+01-14-2018 19:36:
+/Users/eriksklotins/Documents/web-projects/material-start/material-start/.sublime-gulp-tmp.js:121
+    	.pipe(livereload());
+    	^
+
+SyntaxError: Unexpected token .
+    at createScript (vm.js:74:10)
+    at Object.runInThisContext (vm.js:116:10)
+    at Module._compile (module.js:537:28)
+    at Object.Module._extensions..js (module.js:584:10)
+    at Module.load (module.js:507:32)
+    at tryModuleLoad (module.js:470:12)
+    at Function.Module._load (module.js:462:3)
+    at Module.require (module.js:517:17)
+    at require (internal/module.js:11:18)
+    at requireGulp (/Users/eriksklotins/Library/Application Support/Sublime Text 3/Packages/Gulp/write_tasks_to_cache.js:28:16)
+
+
+01-15-2018 07:43:
+/Users/eriksklotins/Documents/web-projects/material-start/material-start/.sublime-gulp-tmp.js:93
+    	.pipe(rename(function(p)
+    	^
+
+SyntaxError: Unexpected token .
+    at createScript (vm.js:74:10)
+    at Object.runInThisContext (vm.js:116:10)
+    at Module._compile (module.js:537:28)
+    at Object.Module._extensions..js (module.js:584:10)
+    at Module.load (module.js:507:32)
+    at tryModuleLoad (module.js:470:12)
+    at Function.Module._load (module.js:462:3)
+    at Module.require (module.js:517:17)
+    at require (internal/module.js:11:18)
+    at requireGulp (/Users/eriksklotins/Library/Application Support/Sublime Text 3/Packages/Gulp/write_tasks_to_cache.js:28:16)
+
+
+01-15-2018 07:44:
+/Users/eriksklotins/Documents/web-projects/material-start/material-start/.sublime-gulp-tmp.js:93
+    	.pipe(rename(function(p)
+    	^
+
+SyntaxError: Unexpected token .
+    at createScript (vm.js:74:10)
+    at Object.runInThisContext (vm.js:116:10)
+    at Module._compile (module.js:537:28)
+    at Object.Module._extensions..js (module.js:584:10)
+    at Module.load (module.js:507:32)
+    at tryModuleLoad (module.js:470:12)
+    at Function.Module._load (module.js:462:3)
+    at Module.require (module.js:517:17)
+    at require (internal/module.js:11:18)
+    at requireGulp (/Users/eriksklotins/Library/Application Support/Sublime Text 3/Packages/Gulp/write_tasks_to_cache.js:28:16)
+
+
+01-15-2018 07:47:
+/Users/eriksklotins/Documents/web-projects/material-start/material-start/.sublime-gulp-tmp.js:85
+	    .pipe(gulp.dest('/lesse')) ;
+	    ^
+
+SyntaxError: Unexpected token .
+    at createScript (vm.js:74:10)
+    at Object.runInThisContext (vm.js:116:10)
+    at Module._compile (module.js:537:28)
+    at Object.Module._extensions..js (module.js:584:10)
+    at Module.load (module.js:507:32)
+    at tryModuleLoad (module.js:470:12)
+    at Function.Module._load (module.js:462:3)
+    at Module.require (module.js:517:17)
+    at require (internal/module.js:11:18)
+    at requireGulp (/Users/eriksklotins/Library/Application Support/Sublime Text 3/Packages/Gulp/write_tasks_to_cache.js:28:16)

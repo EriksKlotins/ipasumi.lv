@@ -4,7 +4,7 @@
  * @param $mdSidenav
  * @constructor
  */
-function AppController(UsersDataService, PropertyDataService, $mdSidenav,$scope, $http, $window) {
+function AppController(PropertyDataService, $mdSidenav,$scope, $http, $window) {
 	var self = this;
 
 	
@@ -62,23 +62,10 @@ function AppController(UsersDataService, PropertyDataService, $mdSidenav,$scope,
 	{
 
 		self.isLoading = true;
-		console.log(params);
 		var aa = PropertyDataService.loadAll(params).then((response)=>{
-
-			console.log(response.data);	
 			self.items = response.data;
 			self.isLoading = false;
-		})
-		
-		// .then(function(data)
-		// //
-		// {
-		// 	self.allItems = data;
-		// 	self.applyParams();
-		// 	// self.allItems = data;
-		// 	console.log(data);
-		// });
-		
+		});
 	}
 
 	self.test = function()
@@ -87,7 +74,7 @@ function AppController(UsersDataService, PropertyDataService, $mdSidenav,$scope,
 	}
 	self.parameters = function()
 	{
-		console.log('parameters');
+		// console.log('parameters');
 		$mdSidenav('parameters').toggle();
 	};
 
@@ -95,39 +82,10 @@ function AppController(UsersDataService, PropertyDataService, $mdSidenav,$scope,
 	{
 		self.currentItem = item;
 		self.mapIsVisible = true;
-
-		// self.mapOverlay.lat = lat;
-		// self.mapOverlay.title = 'title';
-		// self.mapOverlay.lon = lon;
-		// self.mapOverlay.visible = true;
-		// console.log('ShowMap', item);
 	};
-
-//---------
-
-	// UsersDataService
-	//       .loadAllUsers()
-	//       .then( function( users ) {
-	//         self.users    = [].concat(users);
-	//         self.selected = users[0];
-	//       });
-
-	// *********************************
-	// Internal methods
-	// *********************************
-
-	self.save = function()
-	{
-		self.title = self.tmp.title;
-	}
-	function toggleConf() {
-		$mdSidenav('conf').toggle();
-	}
-
-
 
 	self.loadData(self.searchParams);
 
 }
 
-export default [ 'UsersDataService','PropertyDataService', '$mdSidenav','$scope', '$http', '$window', AppController ];
+export default [ 'PropertyDataService', '$mdSidenav','$scope', '$http', '$window', AppController ];

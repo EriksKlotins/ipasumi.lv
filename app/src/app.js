@@ -6,12 +6,12 @@ import 'angular-aria';
 import 'angular-material';
 
 import AppController from 'src/AppController';
-import Users from 'src/users/Users';
+// import Users from 'src/users/Users';
 import PropertyList from 'src/property-list/Property-list.js';
 import MapOverlay from 'src/map/map.js';
 // import Tree from  'src/tree/Tree';
 
-export default angular.module( 'starter-app', [ 'ngMaterial', Users.name, PropertyList.name, MapOverlay.name] )
+export default angular.module( 'starter-app', [ 'ngMaterial', PropertyList.name, MapOverlay.name] )
   .config(($mdIconProvider, $mdThemingProvider) => {
     // Register the user `avatar` icons
     $mdIconProvider

@@ -9,9 +9,10 @@ html
 		link(rel="stylesheet" href="./jspm_packages/github/angular/bower-material@master/angular-material.css")
 		link(rel="stylesheet" href="./assets/app.css")
 	body(ng-cloak layout="column" ng-controller="AppController as app")
+		//- md-nav-bar(md-selected-nav-item="currentNavItem")
+		//- 	md-nav-item(md-nav-href="#page2" name="page3") Pirmais
+		//- 	md-nav-item(md-nav-href="#page3" name="page3") Otrais
 		md-toolbar.menu(layout="row" class="md-toolbar-tools")
-			//- md-button.menu.md-icon-button(hide-th-sm ng-click="app.showMap(11,11)")
-			//- 	md-icon(md-svg-icon="menu")
 			h1 Nekustamie īpašumi no ss.lv
 			md-button.md-raised(ng-click="app.parameters()") Filtrs
 		div(flex layout="row")
@@ -21,10 +22,10 @@ html
 				h4 Cena
 				md-input-container.compact
 					label Cena no {{app.searchParams.price[0]}} Eur
-					md-slider(ng-model="app.searchParams.price[0]" min="0" max="200000" step="1000" )
+					md-slider(aria-label="Cena no" ng-model="app.searchParams.price[0]" min="0" max="200000" step="1000" )
 				md-input-container.compact
 					label Cena līdz {{app.searchParams.price[1]}} Eur
-					md-slider(ng-model="app.searchParams.price[1]" min="{{app.searchParams.price[0]}}" max="200000" step="1000")
+					md-slider(aria-label="Cena līdz" ng-model="app.searchParams.price[1]" min="{{app.searchParams.price[0]}}" max="200000" step="1000")
 				//- md-input-container
 				//- 	label Attālums no:
 				//- 	md-select(ng-model="app.searchParams.position" placeholder="Izvēlies vietu")
@@ -32,18 +33,18 @@ html
 				h4 Attālums no Rīgas centra
 				md-input-container.compact
 					label Ne vairāk kā {{app.searchParams.distance[1]}} km
-					md-slider(ng-model="app.searchParams.distance[1]" min="0" max="200" step="5")
+					md-slider(aria-label="Attālums līdz" ng-model="app.searchParams.distance[1]" min="0" max="200" step="5")
 				md-input-container.compact
 					label Ne ilgāk kā {{app.searchParams.duration[1]/60 }} min
-					md-slider(ng-model="app.searchParams.duration[1]" min="0" max="{{5*3600}}" step="60")
+					md-slider(aria-label="Ilgums līdz" ng-model="app.searchParams.duration[1]" min="0" max="{{5*3600}}" step="60")
 				
 				h4 Īpašuma platība
 				md-input-container.compact
 					label No {{app.searchParams.m2[0]}} m2
-					md-slider(ng-model="app.searchParams.m2[0]" min="0" max="1000" step="10" )
+					md-slider(aria-label="Platība no" ng-model="app.searchParams.m2[0]" min="0" max="1000" step="10" )
 				md-input-container.compact
 					label Līdz {{app.searchParams.m2[1]}} m2
-					md-slider(ng-model="app.searchParams.m2[1]" min="{{app.searchParams.m2[0]}}" max="1000" step="10")
+					md-slider(aria-label="Platība līdz" ng-model="app.searchParams.m2[1]" min="{{app.searchParams.m2[0]}}" max="1000" step="10")
 
 				h4 Īpašumu veidi
 				md-input-container

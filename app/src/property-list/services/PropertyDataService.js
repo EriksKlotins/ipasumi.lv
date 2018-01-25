@@ -1,11 +1,4 @@
-/**
- * Users DataService
- * Uses embedded, hard-coded data model; acts asynchronously to simulate
- * remote data service call(s).
- *
- * @returns {{loadAll: Function}}
- * @constructor
- */
+
  function PropertyDataService($q, $http, $window, $sce) {
 
 
@@ -22,7 +15,8 @@
 				
 			
 			return $http.get([
-				'http://localhost/ss/api2.php', 
+				'http://47.91.91.188/madarasmuiza/api2.php'
+				// 'http://localhost/ss/api2.php', 
 				Object.keys(params).map((key) => {
 					return [key, params[key].join(',')].join('=');
 				}).join('&')].join('?'));

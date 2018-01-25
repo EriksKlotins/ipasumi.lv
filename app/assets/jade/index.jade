@@ -13,9 +13,7 @@ html
 			//- md-button.menu.md-icon-button(hide-th-sm ng-click="app.showMap(11,11)")
 			//- 	md-icon(md-svg-icon="menu")
 			h1 Nekustamie īpašumi no ss.lv
-
 			md-button.md-raised(ng-click="app.parameters()") Filtrs
-			//- md-button.md-raised(ng-click="app.test()") test
 		div(flex layout="row")
 			property-list.property-list-full(items="app.items" show-map="app.showMap($item)")
 			
@@ -31,7 +29,7 @@ html
 				//- 	label Attālums no:
 				//- 	md-select(ng-model="app.searchParams.position" placeholder="Izvēlies vietu")
 				//- 		md-option(ng-value="item" ng-repeat="(key, item) in app.positions") {{key}}
-				h4 Attālums
+				h4 Attālums no Rīgas centra
 				md-input-container.compact
 					label Ne vairāk kā {{app.searchParams.distance[1]}} km
 					md-slider(ng-model="app.searchParams.distance[1]" min="0" max="200" step="5")
@@ -39,7 +37,7 @@ html
 					label Ne ilgāk kā {{app.searchParams.duration[1]/60 }} min
 					md-slider(ng-model="app.searchParams.duration[1]" min="0" max="{{5*3600}}" step="60")
 				
-				h4 īpašuma platība
+				h4 Īpašuma platība
 				md-input-container.compact
 					label No {{app.searchParams.m2[0]}} m2
 					md-slider(ng-model="app.searchParams.m2[0]" min="0" max="1000" step="10" )
@@ -54,26 +52,11 @@ html
 					md-checkbox(ng-model="app.searchParams.categories[1]" ng-true-value="'flats'") Dzīvokļi
 					md-checkbox(ng-model="app.searchParams.categories[2]" ng-true-value="'plots-and-lands'") Zeme
 					md-checkbox(ng-model="app.searchParams.categories[3]" ng-true-value="'farms-estates'") Lauku sētas
-				//- 	input(type="number" ng-model="app.parameters.price.min")
-				//- md-input-container
-				//- 	label Cena līdz
-				//- 	input(type="number" ng-model="app.parameters.price.max")
 				md-button.md-accent.md-raised(ng-click="app.applyParams()" ng-disabled="app.isLoading") Atlasīt
 				div
 					md-progress-linear(md-mode="indeterminate" ng-show="app.isLoading")
      
 		map-overlay(item="app.currentItem" visible="app.mapIsVisible" )
-			//- md-virtual-repeat-container
-			//- 	div(md-virtual-repeat="item in app.items" )
-			//- 		span {{$index}}
-			//- 		span {{item.place}}
-
-			
-
-
-
-
-
 				
 		script(type="text/javascript" src="//localhost:35456/livereload.js?snipver=1")
 		script(src="./jspm_packages/system.js" type="text/javascript")

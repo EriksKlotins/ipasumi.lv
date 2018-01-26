@@ -7,21 +7,17 @@
 function AppController(PropertyDataService, $mdSidenav,$scope, $http, $window) {
 	var self = this;
 
-	
+
 	self.items = [];
 	self.isLoading = false;
-	var nullItem = {
-		lat:null,
-		lon:null
-	};
 	self.positions = {
 		'Rīga' : [56.946666, 24.104799], 
 		// 'Valmiera': [57.535745, 25.424124],
 		// 'Cēsis' : [57.310661, 25.268446], 
 		// 'Jelgava' : [56.651682, 23.711986]
 	};
-
-
+	self.currentItem = {lat:null, lon:null};
+	
 	var savedParams = $window.localStorage.getItem('searchParams');
 	self.searchParams = (savedParams != null) ? angular.fromJson(savedParams) : 
 	{
@@ -30,9 +26,9 @@ function AppController(PropertyDataService, $mdSidenav,$scope, $http, $window) {
 		distance: 	[0,200],
 		position: 	self.positions['Rīga'],
 		duration: 	[0, 60*60*1],
-		page : 		[100, 0],
-		categories : ['homes-summer-residences', '', ''],
-		m2 : 		[80, 150]
+		categories: ['homes-summer-residences', '', ''],
+		m2 : 		[80, 150],
+		page: 		[10, 0]
 	};
 
 	/*
@@ -40,52 +36,54 @@ function AppController(PropertyDataService, $mdSidenav,$scope, $http, $window) {
 	 */
 	self.applyParams = function()
 	{
+		self.searchParams.page[1] = 0; // reset pagination
 		$window.localStorage.setItem('searchParams', angular.toJson(self.searchParams));
+
 		self.loadData(self.searchParams);
-	}
-	// {
-
-	// 	console.log('applyParams');
-	// 	self.items = self.allItems.filter(function(e)
-	// 	{
-	// 		return ( e.price >= self.searchParams.priceMin && e.price <= self.searchParams.priceMax  );
-	// 	});
-	// };
-
-	
-
-
-	self.currentItem = nullItem;
-
+	};
 
 	self.loadData = function(params)
 	{
 
 		self.isLoading = true;
-		var aa = PropertyDataService.loadAll(params).then((response)=>{
+		PropertyDataService.loadAll(params).then((response)=>{
 			self.items = response.data;
 			self.isLoading = false;
 		});
-	}
+	};
 
 	self.test = function()
 	{
-		self.loadData();
-	}
+		console.log('This is test method', arguments);
+	};
+
+	self.loadMore = function()
+	{
+
+		var params = self.searchParams;
+		params.page[1] += params.page[0];
+		console.log('LoadMore()', params);
+		self.isLoading = true;
+		PropertyDataService.loadAll(params).then((response)=>{
+			self.items = self.items.concat( response.data);
+			self.isLoading = false;
+		});
+	};
+
+
 	self.parameters = function()
 	{
-		// console.log('parameters');
 		$mdSidenav('parameters').toggle();
 	};
 
 	self.showMap = function(item)
 	{
+		// self.isLoading = true;
 		self.currentItem = item;
 		self.mapIsVisible = true;
 	};
 
 	self.loadData(self.searchParams);
-
 }
 
 export default [ 'PropertyDataService', '$mdSidenav','$scope', '$http', '$window', AppController ];

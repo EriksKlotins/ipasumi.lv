@@ -2,6 +2,8 @@ map-overlay
 {
 	// border:2px solid red;
 	overflow: visible;
+
+
 	.inner
 	{
 		display: flex;
@@ -26,6 +28,7 @@ map-overlay
 	  		md-card-header
 	  		{
 	  			// border:1px solid gray;
+
 	  		}
 	  		md-card-actions
 	  		{
@@ -33,6 +36,7 @@ map-overlay
 	  			{
 	  				flex-grow:2;
 	  			}
+
 	  		}
 	  		md-card-content
 	  		{
@@ -40,6 +44,19 @@ map-overlay
 	  			flex-grow: 1;
 	  			display: flex;
 	  			padding:0;
+	  			
+	  			position: relative;
+	  			.progress-bar
+				{
+					position: absolute;
+					top: 0;
+					left: 0;
+					right: 0;
+					// border: 2px solid red;
+					height: 4px;
+					margin:0;
+					border:none;
+				}
 	  			iframe
 		  		{
 		  			&.loaded

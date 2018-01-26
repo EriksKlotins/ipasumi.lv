@@ -3,12 +3,11 @@ div.map-overlay()
 		md-card
 			md-card-actions(layout="row" layout-align="end center")
 				h2.title {{$ctrl.item.place}}
-				md-button.md-primary.md-raised(ng-click="$ctrl.close()") Close
-			//- md-card-header
-			//- 	span.md-card-header-text {{ [$ctrl.lat, $ctrl.lon].join(',')}}
-
-			md-card-content
+				md-button.md-primary.md-raised(ng-click="$ctrl.close()") Aizvērt
 				
+			md-card-content
+				div.progress-bar
+					md-progress-linear(md-mode="indeterminate" ng-show="$ctrl.isLoading")
 				//- iframe(frameborder="0" src="{{$ctrl.mapUrl}}" allowfullscreen)
 				iframe(iframe-onload="$ctrl.contentReady()" ng-class=" [$ctrl.mapLoaded ? 'loaded':'' ]" frameborder=0 src="{{ $ctrl.sce.trustAsResourceUrl('https://www.google.com/maps/embed/v1/place?key=AIzaSyDoT_apjPu1sWghNtiC01blVOyeUXATaHc&zoom=10&q='+ $ctrl.item.lat+','+$ctrl.item.lon )}}  ")
 			

@@ -4,7 +4,7 @@ html
 		meta(charset="UTF-8")
 		meta(http-equiv="X-UA-Compatible" content="IE=edge")
 		meta(name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no")
-		title Ipašumi LV
+		title Īpašumi
 		link(rel="stylesheet" href='http://fonts.googleapis.com/css?family=Roboto:400,700')
 		link(rel="stylesheet" href="./jspm_packages/github/angular/bower-material@master/angular-material.css")
 		link(rel="stylesheet" href="./assets/app.css")
@@ -13,10 +13,13 @@ html
 		//- 	md-nav-item(md-nav-href="#page2" name="page3") Pirmais
 		//- 	md-nav-item(md-nav-href="#page3" name="page3") Otrais
 		md-toolbar.menu(layout="row" class="md-toolbar-tools")
-			h1 Nekustamie īpašumi no ss.lv
+			h1 Īpašumi
 			md-button.md-raised(ng-click="app.parameters()") Filtrs
+		div.progress-bar
+			md-progress-linear(md-mode="indeterminate" ng-show="app.isLoading")
+		
 		div(flex layout="row")
-			property-list.property-list-full(items="app.items" show-map="app.showMap($item)")
+			property-list.property-list-full(items="app.items" load-more="app.loadMore()" show-map="app.showMap($item)")
 			
 			md-sidenav.filter-params.md-whiteframe-4dp( md-component-id="parameters" layout="column" layout-padding)
 				h4 Cena
@@ -48,16 +51,14 @@ html
 
 				h4 Īpašumu veidi
 				md-input-container
-
 					md-checkbox(ng-model="app.searchParams.categories[0]" ng-true-value="'homes-summer-residences'") Mājas
 					md-checkbox(ng-model="app.searchParams.categories[1]" ng-true-value="'flats'") Dzīvokļi
 					md-checkbox(ng-model="app.searchParams.categories[2]" ng-true-value="'plots-and-lands'") Zeme
 					md-checkbox(ng-model="app.searchParams.categories[3]" ng-true-value="'farms-estates'") Lauku sētas
 				md-button.md-accent.md-raised(ng-click="app.applyParams()" ng-disabled="app.isLoading") Atlasīt
-				div
-					md-progress-linear(md-mode="indeterminate" ng-show="app.isLoading")
+				
      
-		map-overlay(item="app.currentItem" visible="app.mapIsVisible" )
+		map-overlay(item="app.currentItem" visible="app.mapIsVisible" is-loading="app.isLoading")
 				
 		script(type="text/javascript" src="//localhost:35456/livereload.js?snipver=1")
 		script(src="./jspm_packages/system.js" type="text/javascript")

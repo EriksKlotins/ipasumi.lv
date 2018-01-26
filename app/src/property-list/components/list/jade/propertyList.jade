@@ -9,12 +9,15 @@ div(layout-wrap layout="row")
 				md-card-header-text
 					span.md-title {{item.place}}
 					span.md-subhead Cena {{item.price}} EUR, platība {{item.m2}} m2, zeme {{item.m2land}} m2
+					span.md-subhead Pievienots {{item.posted_at}}
 			md-card-content
 				div.photos(layout-wrap layout="row")
-					.photo(flex="25" ng-repeat="photo in item.photos.slice(0,8)")
-						img(src="{{photo}}" )
+					.photo.square(flex="25" ng-repeat="photo in item.photos.slice(0,8)")
+						.img(style="background-image:url({{photo}})" )
 				p.description {{item.description}}
 			md-card-actions(layout="row")
 				md-button(target="blank" href="http://ss.lv{{item.url}}") Sludinājums
 				md-button(ng-click="$ctrl.showMap({$item:item})" ) Karte
+	.footer(flex="100")
+		md-button.md-raised.md-accent(ng-click="$ctrl.loadMore({})") Ielādēt vēl
 

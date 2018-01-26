@@ -4,7 +4,7 @@
 export default {
   name : 'propertyList',
   config : {
-   bindings         : {  items: '<', showMap : '&showMap', 'test':'&test'},//, selected : '<', showDetails : '&onSelected' },
+   bindings         : {loadMore: '&loadMore',  items: '<', showMap : '&showMap'},//, selected : '<', showDetails : '&onSelected' },
    templateUrl      : 'src/property-list/components/list/PropertyList.html'
   }
 };

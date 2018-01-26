@@ -1,6 +1,17 @@
 
 property-list
 {
+
+	.footer
+	{
+		// height: 100px;
+		// background-color: red;
+		padding-top: 40px;
+		padding-bottom: 40px;
+		align-items: center;
+  		justify-content: center;
+  		text-align: center;
+	}
 	md-card
 	{
 		md-card-content
@@ -23,19 +34,49 @@ property-list
 				}
 				
 			}
+
+			.square
+			{
+				// background-color: red;
+				
+				
+				
+				// border:1px solid gray;
+				
+			}
 			.photos
 			{
 				.photo
 				{
-					border:5px solid #efefef;
-					height: 130px;
-					// width: 100px;
-					border-radius: 4px;
-					overflow: hidden;
-					img
-					{						
-						width: 100%;
+	
+					&:after
+					{
+						padding-top:63%;
+						content: " ";
+						display: block;	
 					}
+					position: relative;
+
+					
+					.img
+					{
+						position: absolute;
+						top:2px;
+						left: 2px;
+						bottom: 2px;
+						right: 2px;
+						// display: none;
+						// position: relative;
+						// top:0;
+						// left: 0;
+						// margin:2%;
+						border:3px solid #efefef;
+						
+						background-size: cover;
+						background-position: 50% 50%;
+						background-repeat: no-repeat;
+					}
+					
 				}
 			}	
 		}

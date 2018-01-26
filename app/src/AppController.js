@@ -62,7 +62,7 @@ function AppController(PropertyDataService, $mdSidenav,$scope, $http, $window) {
 
 		var params = self.searchParams;
 		params.page[1] += params.page[0];
-		console.log('LoadMore()', params);
+		// console.log('LoadMore()', params);
 		self.isLoading = true;
 		PropertyDataService.loadAll(params).then((response)=>{
 			self.items = self.items.concat( response.data);

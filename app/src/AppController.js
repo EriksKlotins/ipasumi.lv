@@ -19,8 +19,7 @@ function AppController(FavouritesDataService,PropertyDataService, $mdSidenav,$sc
 	self.currentItem = {lat:null, lon:null};
 	self.currentNavItem = 'visi';
 	var savedParams = $window.localStorage.getItem('searchParams');
-	self.searchParams = (savedParams != null) ? angular.fromJson(savedParams) : 
-	{
+	var defaultParams = {
 
 		price: 		[30000, 80000],
 		distance: 	[0,200],
@@ -31,6 +30,9 @@ function AppController(FavouritesDataService,PropertyDataService, $mdSidenav,$sc
 		page: 		[10, 0],
 		token: 		[FavouritesDataService.getToken(), 0]
 	};
+
+	self.searchParams = (savedParams != null) ? angular.merge({},defaultParams, angular.fromJson(savedParams)) : defaultParams;
+	
 
 
 	self.favFilter = function(state)
@@ -45,6 +47,7 @@ function AppController(FavouritesDataService,PropertyDataService, $mdSidenav,$sc
 	self.applyParams = function()
 	{
 		self.searchParams.page[1] = 0; // reset pagination
+		self.searchParams.token[0] =  FavouritesDataService.getToken();
 		// console.log(self.searchParams);
 		$window.localStorage.setItem('searchParams', angular.toJson(self.searchParams));
 		self.loadData(self.searchParams);

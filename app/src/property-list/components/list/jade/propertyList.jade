@@ -10,6 +10,9 @@ div(layout-wrap layout="row")
 					span.md-title {{item.place}}
 					span.md-subhead Cena {{item.price}} EUR, platība {{item.m2}} m2, zeme {{item.m2land}} m2
 					span.md-subhead Pievienots {{item.posted_at}}
+				md-fav-buttons
+					md-button.md-no-focus.md-no-ink(ng-click="$ctrl.toggleFav(item)")
+						i.material-icons {{item.fav === true ? "star" : "star_border"}}
 			md-card-content
 				div.photos(layout-wrap layout="row")
 					.photo.square(flex="25" ng-repeat="photo in item.photos.slice(0,8)")

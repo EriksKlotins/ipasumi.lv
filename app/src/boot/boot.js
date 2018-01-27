@@ -12,7 +12,7 @@ angular
     angular
       .module( 'starter-app-bootstrap', [ App.name ] )
       .run(()=>{
-        console.log("Bombaaa");
+        // console.log("Bombaaa");
       });
 
     let body = document.getElementsByTagName("body")[0];

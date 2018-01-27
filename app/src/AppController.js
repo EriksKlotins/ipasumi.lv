@@ -4,7 +4,7 @@
  * @param $mdSidenav
  * @constructor
  */
-function AppController(PropertyDataService, $mdSidenav,$scope, $http, $window) {
+function AppController(FavouritesDataService,PropertyDataService, $mdSidenav,$scope, $http, $window) {
 	var self = this;
 
 
@@ -17,7 +17,7 @@ function AppController(PropertyDataService, $mdSidenav,$scope, $http, $window) {
 		// 'Jelgava' : [56.651682, 23.711986]
 	};
 	self.currentItem = {lat:null, lon:null};
-	
+	self.currentNavItem = 'visi';
 	var savedParams = $window.localStorage.getItem('searchParams');
 	self.searchParams = (savedParams != null) ? angular.fromJson(savedParams) : 
 	{
@@ -28,17 +28,25 @@ function AppController(PropertyDataService, $mdSidenav,$scope, $http, $window) {
 		duration: 	[0, 60*60*1],
 		categories: ['homes-summer-residences', '', ''],
 		m2 : 		[80, 150],
-		page: 		[10, 0]
+		page: 		[10, 0],
+		token: 		[FavouritesDataService.getToken(), 0]
 	};
 
+
+	self.favFilter = function(state)
+	{
+		// console.log('favFilter', state);
+		self.searchParams.token[1] = state;
+		self.applyParams();
+	};
 	/*
 		User wants to apply search criteria
 	 */
 	self.applyParams = function()
 	{
 		self.searchParams.page[1] = 0; // reset pagination
+		// console.log(self.searchParams);
 		$window.localStorage.setItem('searchParams', angular.toJson(self.searchParams));
-
 		self.loadData(self.searchParams);
 	};
 
@@ -57,6 +65,9 @@ function AppController(PropertyDataService, $mdSidenav,$scope, $http, $window) {
 		console.log('This is test method', arguments);
 	};
 
+
+	
+	
 	self.loadMore = function()
 	{
 
@@ -86,4 +97,4 @@ function AppController(PropertyDataService, $mdSidenav,$scope, $http, $window) {
 	self.loadData(self.searchParams);
 }
 
-export default [ 'PropertyDataService', '$mdSidenav','$scope', '$http', '$window', AppController ];
+export default [  'FavouritesDataService', 'PropertyDataService', '$mdSidenav','$scope', '$http', '$window', AppController ];

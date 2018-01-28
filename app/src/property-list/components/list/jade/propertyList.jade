@@ -4,12 +4,28 @@ div(layout-wrap layout="row")
 	.wrapper(ng-repeat="item in $ctrl.items" flex="100")
 		md-card
 			md-card-header
-				md-card-avatar
-					img.md-user-avatar(src="http://placehold.it/50x50")
+				//- md-card-avatar
+				//- 	img.md-user-avatar(src="http://placehold.it/50x50")
 				md-card-header-text
 					span.md-title {{item.place}}
-					span.md-subhead Cena {{item.price}} EUR, platība {{item.m2}} m2, zeme {{item.m2land}} m2
-					span.md-subhead Pievienots {{item.posted_at}}
+					div(layout="column" )
+						.params-box(layout="row" layout-wrap)
+							.param.strong
+								i.fa.fa-eur
+								|  {{item.price}}
+							.param(ng-show="item.m2 > 0") Platība: {{item.m2}} m2
+							.param(ng-show="item.m2land") Zeme: {{item.m2land}} m2
+							.param 
+								i.fa.fa-bicycle
+								|  {{$ctrl.formatDistance(item.distance)}}
+							.param 
+								i.fa.fa-clock-o
+								|  {{$ctrl.formatTime(item.duration)}}
+						.params-box(layout="row" layout-wrap)
+							.param Pievienots: {{item.posted_at}}
+							
+					//- span.md-subhead Cena {{item.price}} EUR, platība {{item.m2}} m2, zeme {{item.m2land}} m2
+					//- span.md-subhead Pievienots {{item.posted_at}}
 				md-fav-buttons
 					md-button.md-no-focus.md-no-ink(ng-click="$ctrl.toggleFav(item)")
 						i.material-icons {{item.fav === true ? "star" : "star_border"}}
@@ -19,8 +35,12 @@ div(layout-wrap layout="row")
 						.img(style="background-image:url({{photo}})" )
 				p.description {{item.description}}
 			md-card-actions(layout="row")
-				md-button(target="blank" href="http://ss.lv{{item.url}}") Sludinājums
-				md-button(ng-click="$ctrl.showMap({$item:item})" ) Karte
+				md-button(target="blank" href="http://ss.lv{{item.url}}") 
+					i.fa.fa-external-link
+					|  Sludinājums
+				md-button(ng-click="$ctrl.showMap({$item:item})" ) 
+					i.fa.fa-map-marker
+					|  Karte
 	.footer(flex="100")
 		md-button.md-raised.md-accent(ng-click="$ctrl.loadMore({})") Ielādēt vēl
 

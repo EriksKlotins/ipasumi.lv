@@ -12,8 +12,12 @@ html
 	body(ng-cloak layout="column" ng-controller="AppController as app")
 		md-nav-bar(md-selected-nav-item="app.currentNavItem")
 			md-nav-item(md-nav-href="#visi" name="visi" ng-click="app.favFilter(0)") Visi īpašumi
-			md-nav-item(md-nav-href="#atlasitie" name="atlasitie" ng-click="app.favFilter(1)") Mani atlasītie
-			md-button.md-accent.md-raised(ng-click="app.parameters()") Filtrs
+			md-nav-item(md-nav-href="#atlasitie" name="atlasitie" ng-click="app.favFilter(1)") 
+				i.fa.fa-star
+				|  Mani atlasītie
+			md-button.md-accent.md-raised(ng-click="app.parameters()") 
+				i.fa.fa-filter
+				|  Filtrs
 		//- md-toolbar.menu(layout="row" )
 		//- 	md-button._md-nav-button.md-active(md-nav-href="#page2" name="page3") Visi īpašumi
 		//- 	md-button(md-nav-href="#page3" name="page3" ng-click="app.test()") Mani atlasītie

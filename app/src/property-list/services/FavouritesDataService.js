@@ -28,9 +28,9 @@
 
 				$http.get([url, Object.keys(params).map((key) => {return [key, params[key]].join('=');}).join('&')].join('?'))
 					.then((response)=>{
-						console.log(response);
+						// console.log(response);
 						this.setToken(response.data.token);
-						resolve();
+						resolve(response);
 					})
 
 			});

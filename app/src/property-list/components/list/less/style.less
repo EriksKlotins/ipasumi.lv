@@ -27,6 +27,44 @@ property-list
 					
 				}
 			}
+			md-card-header-text
+			{
+				max-height: 70px;
+				// max-height: auto;
+				.md-title
+				{
+					font-size: 1.2em;
+					letter-spacing: 0.01em;
+				}
+			}
+			.params-box
+			{
+				// border:1px solid red;
+				margin-top:5px;
+				.param
+				{
+					&.strong
+					{
+						font-size: 1.1em;
+						font-weight: 600;
+					}
+					flex:1 1 auto;
+					line-height: 1.5em;
+					// border:1px solid green;
+					// height: 2em;
+				}
+			}
+		}
+
+		md-card-actions
+		{
+			.md-button
+			{
+				border:1px solid #eee;
+				flex: 1 1 auto;
+				margin-right: 4px;
+			}
+
 		}
 		md-card-content
 		{

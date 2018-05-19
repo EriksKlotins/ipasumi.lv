@@ -1,0 +1,23 @@
+doctype!
+html
+	head
+		meta(charset="UTF-8")
+		meta(http-equiv="X-UA-Compatible" content="IE=edge")
+		meta(name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no")
+		title Īpašumi
+		link(rel="stylesheet" href='http://fonts.googleapis.com/css?family=Roboto:400,700')
+		link(rel="stylesheet" href="./jspm_packages/github/angular/bower-material@master/angular-material.css")
+		link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
+		link(rel="stylesheet" href="./assets/app.css")
+	body(ng-cloak layout="column" ng-controller="AppController as app")
+		
+		a(href="Book/Moby/ch/1") Book/Moby/ch/1
+		a(href="Book/BKDIK") Bkdk
+
+		script(type="text/javascript" src="//localhost:35456/livereload.js?snipver=1")
+		script(src="./jspm_packages/system.js" type="text/javascript")
+		script(src="config.js" type="text/javascript")
+		script.
+			 System
+			.import('src/boot/boot').catch( console.error.bind(console) ); 
+

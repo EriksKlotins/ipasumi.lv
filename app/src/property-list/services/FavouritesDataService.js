@@ -1,10 +1,6 @@
 
  function FavouritesDataService($q, $http, $window) {
 
-
-	//102853
-
-
 	return {
 		getToken : function()
 		{

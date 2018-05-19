@@ -4,12 +4,13 @@ html
 		meta(charset="UTF-8")
 		meta(http-equiv="X-UA-Compatible" content="IE=edge")
 		meta(name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no")
-		title Īpašumi.
+		title Īpašumi
 		link(rel="stylesheet" href='http://fonts.googleapis.com/css?family=Roboto:400,700')
 		link(rel="stylesheet" href="./jspm_packages/github/angular/bower-material@master/angular-material.css")
 		link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
 		link(rel="stylesheet" href="./assets/app.css")
 	body(ng-cloak layout="column" ng-controller="AppController as app")
+		
 		md-nav-bar(md-selected-nav-item="app.currentNavItem")
 			md-nav-item(md-nav-href="#visi" name="visi" ng-click="app.favFilter(0)") Visi īpašumi
 			md-nav-item(md-nav-href="#atlasitie" name="atlasitie" ng-click="app.favFilter(1)") 
@@ -18,14 +19,7 @@ html
 			md-button.md-accent.md-raised(ng-click="app.parameters()") 
 				i.fa.fa-filter
 				|  Filtrs
-		//- md-toolbar.menu(layout="row" )
-		//- 	md-button._md-nav-button.md-active(md-nav-href="#page2" name="page3") Visi īpašumi
-		//- 	md-button(md-nav-href="#page3" name="page3" ng-click="app.test()") Mani atlasītie
-		//- 	md-button.md-accent.md-raised(ng-click="app.parameters()") Filtrs
-			//- md-button.md-raised(ng-click="app.parameters()") Filtrs
-		//- md-toolbar.menu(layout="row" class="md-toolbar-tools")
-		//- 	h1 Īpašumi
-		//- 	md-button.md-raised(ng-click="app.parameters()") Filtrs
+			//- a(href="Book/Moby/ch/1") Tests
 		div.progress-bar
 			md-progress-linear(md-mode="indeterminate" ng-show="app.isLoading")
 		
@@ -59,6 +53,13 @@ html
 				md-input-container.compact
 					label Līdz {{app.searchParams.m2[1]}} m2
 					md-slider(aria-label="Platība līdz" ng-model="app.searchParams.m2[1]" min="{{app.searchParams.m2[0]}}" max="1000" step="10")
+				h4 Zemes platība
+				md-input-container.compact
+					label No {{app.searchParams.m2land[0]}} m2
+					md-slider(aria-label="Platība no" ng-model="app.searchParams.m2land[0]" min="0" max="100000" step="100" )
+				md-input-container.compact
+					label Līdz {{app.searchParams.m2land[1]}} m2
+					md-slider(aria-label="Platība līdz" ng-model="app.searchParams.m2land[1]" min="{{app.searchParams.m2land[0]}}" max="100000" step="100")
 
 				h4 Īpašumu veidi
 				md-input-container

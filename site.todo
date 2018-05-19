@@ -3,9 +3,25 @@
 
 Konfigurācija:
 
-  ☐ parcelt eriksklotins.lv uz sonkeigo serveri
-    ☐ domens
-    ☐ saturs
-  ☐ uzkonfigurēt subdomēnu ss.eriksklotins.lv
-  ☐ uzkonfigurēt git ftp
-  ☐ git repo
+  ✔ parcelt eriksklotins.lv uz sonkeigo serveri @done (18-01-28 21:05)
+    ✔ domens @done (18-01-28 21:05)
+    ✔ saturs @done (18-01-28 21:05)
+  ✔ uzkonfigurēt subdomēnu ss.eriksklotins.lv @done (18-01-28 21:05)
+  ✔ uzkonfigurēt git ftp @done (18-01-28 21:05)
+  ✔ git repo @done (18-01-28 21:05)
+
+
+Fīčas:
+ 
+Svarīgi:
+ ☐ API ierobežojumi
+    ☐ Logošana
+ ☐ Hotjar/Google Analytics
+ ☐ Nepārlādēt saturu slēdzoties starp sadaļām
+ ☐ Kaut kāda iespēja dalīties ar user_token
+ 
+
+ ☐ Kārtošanas iespējas
+ ☐ Salikt sadaļas ng-view
+
+

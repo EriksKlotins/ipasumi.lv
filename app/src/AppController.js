@@ -27,11 +27,14 @@ function AppController(FavouritesDataService,PropertyDataService, $mdSidenav,$sc
 		duration: 	[0, 60*60*1],
 		categories: ['homes-summer-residences', '', ''],
 		m2 : 		[80, 150],
+		m2land : 	[0, 100000],
 		page: 		[10, 0],
 		token: 		[FavouritesDataService.getToken(), 0]
 	};
 
-	self.searchParams = (savedParams != null) ? angular.merge({},defaultParams, angular.fromJson(savedParams)) : defaultParams;
+	self.searchParams = (savedParams != null) 
+			? angular.merge({},defaultParams, angular.fromJson(savedParams)) 
+			: defaultParams;
 	
 
 

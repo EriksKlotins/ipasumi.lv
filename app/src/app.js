@@ -4,12 +4,14 @@ import angular from 'angular';
 import 'angular-animate';
 import 'angular-aria';
 import 'angular-material';
+import 'angular-routes';
+
 
 import AppController from 'src/AppController';
 import PropertyList from 'src/property-list/Property-list.js';
 import MapOverlay from 'src/map/map.js';
 
-export default angular.module( 'starter-app', [ 'ngMaterial', PropertyList.name, MapOverlay.name] )
+export default angular.module( 'ipasumi-app', [ 'ngMaterial', 'ngRoute', PropertyList.name, MapOverlay.name] )
   .config(($mdIconProvider, $mdThemingProvider) => {
     // Register the user `avatar` icons
     // $mdIconProvider
@@ -25,6 +27,28 @@ export default angular.module( 'starter-app', [ 'ngMaterial', PropertyList.name,
       .primaryPalette('blue')
       .accentPalette('red');
   })
+
+  // -- eksperiments ar routes
+  .config(($routeProvider, $locationProvider) => {
+    $routeProvider
+      .when('/ss-GUI/project/app/Book/:bookId', {
+        // templateUrl: 'book.html',
+        controller: function(){
+          console.log('Im controller');
+        },
+        // controllerAs: 'book'
+      })
+      
+      .when('/Book/:bookId/ch/:chapterId', {
+        templateUrl: 'chapter.html',
+        controller: 'ChapterCtrl',
+        controllerAs: 'chapter'
+      });
+      console.log('here', $routeProvider);
+
+    $locationProvider.html5Mode(true);
+})
+// -- beidzas eksperiments ar routes
   .controller('AppController', AppController)
   .directive('iframeOnload', [function(){
   return {
